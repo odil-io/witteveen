@@ -1,0 +1,381 @@
+* {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+	font-family: 'Titillium Web', sans-serif;
+}
+html{
+	background-color:#f5f5f5;
+	color:#474747;
+}
+.header-wrapper {
+	position: relative;
+	border-bottom: 3px solid #ea992c;
+	margin-top: 33px;
+	background-image: url(../img/header-bg.jpg);
+	background-size: cover;
+	background-position: center;
+	height: 479px;
+}
+
+.header-container {
+	position: relative;
+	max-width: 1200px;
+	margin: 0 auto;
+}
+
+.header-logo {
+	position: absolute;
+	background-image: url(../img/logo.png);
+	height: 132px;
+	width: 299px;
+	top: -13px;
+}
+
+.header-bg {
+	position: relative;
+	background-image: url(../img/header-bg.jpg);
+	background-size: cover;
+	background-position: center;
+	width: 100%;
+	height: 479px;
+	border-bottom: 3px solid #ea992c;
+}
+
+.header-menu {
+	position: absolute;
+	right: 0;
+}
+.cta-grey{
+	font-size: 38px;
+	font-weight: 800;
+	position: absolute;
+	top: 170px;
+	right: 0;
+	text-transform: uppercase;
+	background:#f5f5f5;
+	color:#004183;
+	padding: 2px 22px;
+}
+.cta-red{
+	font-size: 27px;
+	font-weight: 300;
+	position: absolute;
+	top: 232px;
+	right: 100px;
+	text-transform: uppercase;
+	background:#db2a28;
+	color:#f5f5f5;
+	padding: 4px 20px;
+}
+.cta-button{
+    background: #ea992c;
+    background: -moz-linear-gradient(top,  #ea992c 0%, #fb701b 100%);
+    background: -webkit-linear-gradient(top,  #ea992c 0%,#fb701b 100%);
+    background: linear-gradient(to bottom,  #ea992c 0%,#fb701b 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ea992c', endColorstr='#fb701b',GradientType=0 );
+    position: absolute;
+    font-weight: 800;
+    font-size: 29px;
+    color: #f5f5f5;
+    padding: 3px 14px;
+    top: 360px;
+    right: 100px;
+}
+.menu-container {
+	list-style: none;
+	margin-top: 14px;
+}
+
+.menu-item {
+	display: inline-block;
+}
+
+.menu-item-a {
+	color: #FFFFFF;
+	font-family: 'Titillium Web', sans-serif;
+	font-weight: 300;
+	font-size: 18px;
+	text-decoration: none;
+	text-transform: uppercase;
+	padding: 5px 10px;
+}
+.row {
+	position: relative;
+	max-width: 1200px;
+	margin: 0 auto;
+	display: block;
+	width: 100%;
+	padding:10px;
+}
+.mol-oranje{
+	color:#e19e3b;
+}
+.mol-rood{
+	color:#db2a28;
+}
+.mol-blauw{
+	color:#2b4881;
+}
+
+.row-title {
+	font-size: 36px;
+	text-align: center;
+	margin-bottom: 18px;
+	text-transform: uppercase;
+}
+.content-container{
+	position: relative;
+	padding: 23px 0;
+	clear:both;
+}
+.clear{
+	clear:both;
+}
+.block-4{
+	float: left;
+	width:33.33333333%;
+}
+.block-5{
+	float:left;
+	width: 41.66666667%;
+}
+.block-6 {
+	float: left;
+	width: 25%;
+}
+.block-7{
+	float:left;
+	width: 58.33333333%;
+}
+.block-8{
+	float: left;
+	width:66.66666667%;
+}
+
+.block-container {
+	width: 248px;
+	margin: 0 auto;
+}
+
+.block-title {
+	font-family: "Roboto_Condensed_Light";
+	width: 100%;
+	font-size: 29px;
+	line-height: 2;
+}
+
+.block-text {
+	position: relative;
+	font-size: 17px;
+	margin: 0 auto;
+	line-height:1.8;
+}
+.block-list {
+	list-style: none;
+	margin: 0 auto;
+}
+
+.block-list-item:before {
+	display: inline-block;
+	content: " ";
+	background-image: url("../img/list-arrow.png");
+	height: 10px;
+	width: 19px;
+	vertical-align: middle;
+}
+
+.block-list-item {
+	border: 1px solid transparent;
+}
+
+.block-list-item-a {
+	margin-left: 8px;
+	color:#474747;
+	text-decoration:none;
+}
+
+.block-list-item:hover {
+	border: 1px solid #f18925;
+	font-weight: 600;
+}
+.cv-img {
+	background-image: url(../img/CV.png);
+	height: 159px;
+	width: 220px;
+	margin: 0 auto;
+}
+
+.cv {
+	color: #fc721b;
+	text-align: center;
+	text-transform: uppercase;
+}
+.scios-img {
+	background-image: url(../img/SCIOS.png);
+	height: 159px;
+	width: 220px;
+	margin: 0 auto;
+}
+
+.scios {
+	color: #db2a28;
+	text-align: center;
+	text-transform: uppercase;
+}
+.stek-img {
+	background-image: url(../img/STEK.png);
+	height: 159px;
+	width: 220px;
+	margin: 0 auto;
+}
+
+.stek {
+	color: #2b4881;
+	text-align: center;
+	text-transform: uppercase;
+}
+.installaties-img {
+	background-image: url(../img/INSTALLATIES.png);
+	height: 159px;
+	width: 220px;
+	margin: 0 auto;
+}
+
+.installaties {
+	color: #9ea19f;
+	text-align: center;
+	text-transform: uppercase;
+}
+/*////////////////// DIKKE RIJEN //////////////////*/
+.red-pattern-bg{
+	background-image:url(../img/red-pattern.png);
+}
+.grey-pattern-bg{
+	background-image:url(../img/grey-pattern.png);
+}
+.white-shadow-bg{
+	background-color:#FFFFFF;
+	box-shadow: inset 0 10px 13px -13px #151810;
+}
+.triangle-list{
+	list-style:none;
+	margin-bottom: 20px;
+	margin-top: 10px;
+}
+.triangle-list-item:before{
+	display: inline-block;
+	content:" ";
+	width: 16px;
+	height: 18px;
+	background-image: url(../img/list-triangle.png);
+	vertical-align: middle;
+	margin-right: 10px;
+}
+.triangle-list-item{}
+.grote-rij-titel{
+	color:#f5f5f5;
+	text-transform: uppercase;
+}
+.grote-rij-tekst{
+	color:#fefefe;
+}
+.big-button-border{
+	position:absolute;
+	right:0;
+	bottom: -30px;
+	padding:10px 20px;
+	border:1px solid #ffffff;
+	text-transform:uppercase;
+}
+.content-container.certificaat{
+	margin-top:30px;
+	margin-bottom:30px;
+}
+.certificering-titel{
+	color:#2b4881;
+	font-size:40px;
+	font-weight:800;
+}
+.certificaat-img{
+	display:block;
+	width:197px;
+	height:197px;
+	margin:0 auto;
+}
+.certificaat-text{
+	font-size:20px;
+}
+.flexbox{
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: space-around;
+	align-items: center;
+}
+
+.footer-container{
+	background-color:#FFFFFF;
+}
+.footer-adres{}
+.footer-logo{
+    background-image: url(../img/logo-klein.png);
+    width: 227px;
+    height: 106px;
+}
+.adres-titel{
+    color: #2b4881;
+    font-weight: 800;
+    line-height: 4;
+}
+.adres-adres{}
+.monteur-nodig{
+    display: inline-block;
+    background-color: #db2a28;
+    color: #ffffff;
+    font-size: 17px;
+    font-weight: 800;
+    text-transform: uppercase;
+    height: 44px;
+    line-height: 44px;
+    padding: 0 20px;
+}
+.andere-vragen{
+    display: inline-block;
+    background-color: #e19e3b;
+    color: #ffffff;
+    font-size: 17px;
+    font-weight: 800;
+    text-transform: uppercase;
+    height: 44px;
+    line-height: 44px;
+    padding: 0 20px;
+}
+.bericht{
+	width: 100%;
+	height:100px;
+	border:none;
+	font-size: 17px;
+	font-weight: 300;
+	line-height: 1.6;
+	padding: 8px;
+}
+.bericht-versturen{
+	float: right;
+	background:none;
+	padding: 2px 24px;
+	border: 1px solid #fff;
+	text-transform: uppercase;
+	color: #ffffff;
+	font-size: 21px;
+	font-weight: 300;
+}
+.footer-list-title{
+	color:#FFFFFF;
+	text-transform: uppercase;
+}
+.footer-right{
+	float:right;
+}
+.footer-left{
+	float:left;
+}

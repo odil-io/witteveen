@@ -1,0 +1,215 @@
+* {
+	margin:0;
+	padding:0;
+	-webkit-box-sizing:border-box;
+	box-sizing:border-box
+}
+body,
+html {
+	width:100%;
+	height:100%;
+	font-size:100%;
+	display:-webkit-box;
+	display:-ms-flexbox;
+	display:flex;
+	-webkit-box-pack:center;
+	-ms-flex-pack:center;
+	justify-content:center;
+	-webkit-box-align:center;
+	-ms-flex-align:center;
+	align-items:center
+}
+body {
+	font:15px/1.3"Montserrat",
+	Arial,
+	sans-serif;
+	color:#4B525C;
+	padding:0 15px;
+	background:url("/assets/img/bb-wp-pattern-transparent-20.png") repeat #0F67F7
+}
+a,
+a:visited {
+	outline:none;
+	color:#0F67F7
+}
+a:hover {
+	text-decoration:none
+}
+aside,
+footer,
+header,
+section {
+	display:block
+}
+::-webkit-scrollbar {
+	width:8px
+}
+::-webkit-scrollbar-track {
+	background:#dbe7fc;
+	border-radius:10px
+}
+::-webkit-scrollbar-thumb {
+	border-radius:10px;
+	background:#0f67f7
+}
+::-webkit-scrollbar-thumb:window-inactive {
+	background:rgba(15,
+	103,
+	247,
+	0.5)
+}
+#content .content-inner {
+	background-color:#fff;
+	max-width:700px;
+	width:100%;
+	border-radius:15px;
+	-webkit-box-shadow:0 0 16px rgba(0,
+	0,
+	0,
+	0.15);
+	box-shadow:0 0 16px rgba(0,
+	0,
+	0,
+	0.15);
+	text-align:center;
+	color:#0F67F7
+}
+#content .content-inner#content-inner-success {
+	padding:35px 40px
+}
+#content .content-inner#content-inner-form {
+	padding:45px 50px 25px
+}
+#content .content-inner h1 {
+	font-size:34px;
+	font-size:2.125rem
+}
+#content .content-inner h2 {
+	font-family:'Foco',
+	'Montserrat',
+	sans-serif;
+	font-style:italic;
+	font-size:21px;
+	font-size:1.3125rem;
+	font-weight:normal
+}
+#content .content-inner h3 {
+	font-size:18px;
+	font-size:1.125rem;
+	line-height:24px;
+	line-height:1.5rem;
+	font-weight:normal
+}
+#content .content-inner p {
+	font-family:'Foco',
+	'Montserrat',
+	sans-serif;
+	font-style:italic;
+	font-size:15px;
+	font-size:0.9375rem;
+	line-height:17px;
+	line-height:1.0625rem;
+	color:#4b525c
+}
+#content .content-inner .divider {
+	width:100px;
+	height:6px;
+	background:#01f3db;
+	margin:15px auto;
+	border-radius:15px;
+	display:block
+}
+#content .content-inner .form-content {
+	margin-bottom:30px
+}
+#content .content-inner .form-content form {
+	display:-webkit-box;
+	display:-ms-flexbox;
+	display:flex;
+	-webkit-box-align:end;
+	-ms-flex-align:end;
+	align-items:flex-end;
+	width:100%;
+	margin:0
+}
+#content .content-inner .form-content form p {
+	text-align:left
+}
+#content .content-inner .form-content form p:first-child {
+	width:calc(100% - 75px)
+}
+#content .content-inner .form-content form p label {
+	position:relative;
+	color:#373F4A
+}
+#content .content-inner .form-content form p label input,
+#content .content-inner .form-content form p label span {
+	display:block
+}
+#content .content-inner .form-content form p label span {
+	font-size:13px;
+	font-size:0.8125rem;
+	font-style:italic;
+	margin-bottom:10px
+}
+#content .content-inner .form-content form p input {
+	-webkit-appearance:none;
+	padding:12px 20px;
+	background:white;
+	border-radius:6px;
+	outline:none;
+	border:none;
+	-webkit-box-shadow:0 2px 6px 0 rgba(0,
+	0,
+	0,
+	0.15);
+	box-shadow:0 2px 6px 0 rgba(0,
+	0,
+	0,
+	0.15);
+	letter-spacing:0;
+	-webkit-transition:200ms ease all;
+	-o-transition:200ms ease all;
+	transition:200ms ease all
+}
+#content .content-inner .form-content form p input[type=email] {
+	height:auto;
+	width:100%
+}
+#content .content-inner .form-content form p input[type=submit] {
+	background:url("/assets/img/submit-arrow.svg") no-repeat center white;
+	-webkit-background-size:21px;
+	background-size:21px;
+	margin-left:15px;
+	height:auto;
+	width:60px;
+	cursor:pointer
+}
+#content .content-inner .form-content form p input:hover {
+	background-color:#F7FAFF;
+	background-position:24px center
+}
+#content .content-inner .logo {
+	display:block;
+	max-width:125px;
+	margin:0 auto
+}
+#content .content-inner .logo img {
+	width:100%;
+	height:auto
+}
+@media only screen and (max-width: 320px) {
+	body,
+	html {
+		font-size:50%
+	}
+}
+@media only screen and (max-width: 768px) {
+	body,
+	html {
+		font-size:70%
+	}
+	#content .content-inner {
+		padding:35px 30px 15px!important
+	}
+}

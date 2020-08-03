@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html class="h-100">
+  <head>
+    <link rel="shortcut icon" href="favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, user-scalable=no"/>
+    <meta charset="UTF-8"/>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script type="text/javascript" src="speedtest.js"></script>
+    <script type="text/javascript">
+      function I(i) {
+        return document.getElementById(i);
+      }
+      //LIST OF TEST SERVERS. See documentation for details if needed
+      var SPEEDTEST_SERVERS = [
+        {
+          name: "odil.io (TransIP)",
+          server: "https://odil.io/",
+          dlURL: "speedtest/backend/garbage.php",
+          ulURL: "speedtest/backend/empty.php",
+          pingURL: "speedtest/backend/empty.php",
+          getIpURL: "speedtest/backend/getIP.php"
+        }
+      ];
+      //INITIALIZE SPEEDTEST
+      var s = new Speedtest(); //create speedtest object
+      s.setParameter("telemetry_level", "basic"); //enable telemetry
+      s.addTestPoints(SPEEDTEST_SERVERS); //add list of servers
+      //SERVER AUTO SELECTION
+      function initServers() {
+        s.selectServer(function (server) {
+          if (server != null) { //at least 1 server is available
+            I("loading").className = "hidden"; //hide loading message
+            //populate server list for manual selection
+            for (var i = 0; i < SPEEDTEST_SERVERS.length; i++) {
+              if (SPEEDTEST_SERVERS[i].pingT == -1) 
+                continue;
+              var option = document.createElement("option");
+              option.value = i;
+              option.textContent = SPEEDTEST_SERVERS[i].name;
+              if (SPEEDTEST_SERVERS[i] === server) 
+                option.selected = true;
+              I("server").appendChild(option);
+            }
+            //show test UI
+            I("interface").className = "container visible";
+            I("servers").className = "input-group";
+            initUI();
+          } else { //no servers are available, the test cannot proceed
+            I("message").innerHTML = "No servers available";
+          }
+        });
+      }
+      var meterBk = /Trident.*rv:(\d+\.\d+)/i.test(navigator.userAgent)
+        ? "#EAEAEA"
+        : "#80808040";
+      var dlColor = "#6060AA",
+        ulColor = "#616161";
+      var progColor = meterBk;
+      //CODE FOR GAUGES
+      function drawMeter(c, amount, bk, fg, progress, prog) {
+        var ctx = c.getContext("2d");
+        var dp = window.devicePixelRatio || 1;
+        var cw = c.clientWidth * dp,
+          ch = c.clientHeight * dp;
+        var sizScale = ch * 0.0055;
+        if (c.width == cw && c.height == ch) {
+          ctx.clearRect(0, 0, cw, ch);
+        } else {
+          c.width = cw;
+          c.height = ch;
+        }
+        ctx.beginPath();
+        ctx.strokeStyle = bk;
+        ctx.lineWidth = 12 * sizScale;
+        ctx.arc(c.width / 2, c.height - 58 * sizScale, c.height / 1.8 - ctx.lineWidth, -Math.PI * 1.1, Math.PI * 0.1);
+        ctx.stroke();
+        ctx.beginPath();
+        ctx.strokeStyle = fg;
+        ctx.lineWidth = 12 * sizScale;
+        ctx.arc(c.width / 2, c.height - 58 * sizScale, c.height / 1.8 - ctx.lineWidth, -Math.PI * 1.1, amount * Math.PI * 1.2 - Math.PI * 1.1);
+        ctx.stroke();
+        if (typeof progress !== "undefined") {
+          ctx.fillStyle = prog;
+          ctx.fillRect(c.width * 0.3, c.height - 16 * sizScale, c.width * 0.4 * progress, 4 * sizScale);
+        }
+      }
+      function mbpsToAmount(s) {
+        return 1 - (1 / (Math.pow(1.3, Math.sqrt(s))));
+      }
+      function format(d) {
+        d = Number(d);
+        if (d < 10) 
+          return d.toFixed(2);
+        if (d < 100) 
+          return d.toFixed(1);
+        return d.toFixed(0);
+      }
+      //UI CODE
+      var uiData = null;
+      function startStop() {
+        if (s.getState() == 3) {
+          //speedtest is running, abort
+          s.abort();
+          data = null;
+          I("server").disabled = false;
+          initUI();
+        } else {
+          //test is not running, begin
+          I("startStopBtn").className = "btn btn-danger";
+          I("startStopBtn").innerHTML = "Abort";
+          I("shareArea").style.display = "none";
+          I("server").disabled = true;
+          s.onupdate = function (data) {
+            uiData = data;
+          };
+          s.onend = function (aborted) {
+            I("startStopBtn").className = "btn btn-primary";
+            I("startStopBtn").innerHTML = "Restart";
+            I("server").disabled = false;
+            updateUI(true);
+            if (!aborted) {
+              //if testId is present, show sharing panel, otherwise do nothing
+              try {
+                var testId = uiData.testId;
+                if (testId != null) {
+                  var shareURL = window.location.href.substring(0, window.location.href.lastIndexOf("/")) + "/results/?id=" + testId;
+                  I("resultsImg").src = shareURL;
+                  I("resultsURL").value = shareURL;
+                  I("testId").innerHTML = testId;
+                  I("shareArea").style.display = "";
+                }
+              } catch (e) {}
+            }
+          };
+          s.start();
+        }
+      }
+      //this function reads the data sent back by the test and updates the UI
+      function updateUI(forced) {
+        if (!forced && s.getState() != 3) 
+          return;
+        if (uiData == null) 
+          return;
+        var status = uiData.testState;
+        I("ip").textContent = uiData.clientIp;
+        I("dlText").textContent = (status == 1 && uiData.dlStatus == 0)
+          ? "..."
+          : format(uiData.dlStatus);
+        drawMeter(I("dlMeter"), mbpsToAmount(Number(uiData.dlStatus)), meterBk, dlColor, Number(uiData.dlProgress), progColor);
+        I("ulText").textContent = (status == 3 && uiData.ulStatus == 0)
+          ? "..."
+          : format(uiData.ulStatus);
+        drawMeter(I("ulMeter"), mbpsToAmount(Number(uiData.ulStatus)), meterBk, ulColor, Number(uiData.ulProgress), progColor);
+        I("pingText").textContent = format(uiData.pingStatus);
+        I("jitText").textContent = format(uiData.jitterStatus);
+      }
+      //update the UI every frame
+      window.requestAnimationFrame = window.requestAnimationFrame || window.webkitRequestAnimationFrame || window.mozRequestAnimationFrame || window.msRequestAnimationFrame || (function (callback, element) {
+        setTimeout(callback, 1000 / 60);
+      });
+      function frame() {
+        requestAnimationFrame(frame);
+        updateUI();
+      }
+      frame(); //start frame loop
+      //function to (re)initialize UI
+      function initUI() {
+        drawMeter(I("dlMeter"), 0, meterBk, dlColor, 0);
+        drawMeter(I("ulMeter"), 0, meterBk, ulColor, 0);
+        I("dlText").textContent = "";
+        I("ulText").textContent = "";
+        I("pingText").textContent = "";
+        I("jitText").textContent = "";
+        I("ip").textContent = "";
+      }
+    </script>
+    <style type="text/css">
+      span.loadCircle {
+        display: inline-block;
+        width: 18px;
+        height: 18px;
+        vertical-align: middle;
+        background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIAAAACACAMAAAD04JH5AAAAP1BMVEUAAAB2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZyFzwnAAAAFHRSTlMAEvRFvX406baecwbf0casimhSHyiwmqgAAADpSURBVHja7dbJbQMxAENRahnN5lkc//5rDRAkDeRgHszXgACJoKiIiIiIiIiIiIiIiIiIiIj4HHspsrpAVhdVVguzrA4OWc10WcEqpwKbnBo0OU1Q5NSpsoJFTgOecrrdEag85DRgktNqfoEdTjnd7hrEHMEJvmRUYJbTYk5Agy6nau6Abp5Cm7mDBtRdPi9gyKdU7w4p1fsLvyqs8hl4z9/w3n/Hmr9WoQ65lAU4d7lMYOz//QboRR5jBZibLMZdAR6O/Vfa1PlxNr3XdS3HzK/HVPRu/KnLs8iAOh993VpRRERERMT/fAN60wwWaVyWwAAAAABJRU5ErkJggg==");
+        background-size: 18px 18px;
+        margin-right: 0.5em;
+        animation: spin 0.6s linear infinite;
+      }
+      @keyframes spin {
+        0% {
+          transform: rotate(0deg);
+        }
+        100% {
+          transform: rotate(359deg);
+        }
+      }
+      .meterText:empty:before {
+        content: "0.00";
+      }
+      div.testArea canvas {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+      }
+      div.visible {
+        animation: fadeIn 0.4s;
+        display: block;
+      }
+      div.hidden {
+        animation: fadeOut 0.4s;
+        display: none;
+      }
+      @keyframes fadeIn {
+        0% {
+          opacity: 0;
+        }
+        100% {
+          opacity: 1;
+        }
+      }
+      @keyframes fadeOut {
+        0% {
+          display: block;
+          opacity: 1;
+        }
+        100% {
+          display: block;
+          opacity: 0;
+        }
+      }
+    </style>
+    <title>LibreSpeed</title>
+  </head>
+  <body class="d-flex flex-column h-100" onload="initServers()">
+    <header>
+      <nav class="navbar navbar-expand navbar-light bg-light">
+        <div class="container">
+          <span class="navbar-brand">
+            <h2>LibreSpeed</h2>
+          </span>
+          <span class="navbar-text">
+            <div id="servers" class="hidden">
+              <select id="server" class="custom-select" aria-label="Select a server" onchange="s.setSelectedServer(SPEEDTEST_SERVERS[this.value])"></select>
+              <div class="input-group-append">
+                <button id="startStopBtn" class="btn btn-primary" onclick="startStop()">Start</button>
+              </div>
+            </div>
+          </span>
+          <span class="ml-4 navbar-text">
+            <div id="loading" class="visible">
+              <div class="spinner-border align-middle" role="status">
+                <span class="sr-only">Loading...</span>
+              </div>
+              Selecting a server...
+            </div>
+          </span>
+          <span class="ml-auto navbar-text">
+            <span id="ip"></span>
+          </span>
+        </nav>
+      </div>
+    </header>
+    <main class="flex-shrink-0" role="main">
+      <div id="interface" class="container hidden">
+        <div class="row">
+          <div class="col-12">
+            <div class="row justify-content-around mt-4 mb-3">
+              <div class="col-5 pt-2 bg-light rounded">
+                <h4>Ping</h4>
+                <p>
+                  <span id="pingText" class="meterText"></span>ms
+                </p>
+              </div>
+              <div class="col-5 pt-2 bg-light rounded">
+                <h4>Jitter</h4>
+                <span id="jitText" class="meterText"></span>ms
+              </div>
+            </div>
+            <div class="row justify-content-around">
+              <div class="col-5 bg-light rounded">
+                <div class="row">
+                  <div class="col-4 pt-2">
+                    <h3>Download</h3>
+                    <span id="dlText" class="meterText"></span>
+                    <span class="unit">Mbps</span>
+                  </div>
+                  <div class="col-8">
+                    <canvas id="dlMeter" class="meter"></canvas>
+                  </div>
+                </div>
+              </div>
+              <div class="col-5 bg-light rounded">
+                <div class="row">
+                  <div class="col-4">
+                    <h4>Upload</h4>
+                    <span id="ulText" class="meterText"></span>
+                    <span class="unit">Mbps</span>
+                  </div>
+                  <div class="col-8">
+                    <canvas id="ulMeter" class="meter"></canvas>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row justify-content-center">
+              <div class="col-10">
+                <div id="shareArea" style="display:none">
+                  <h3>Share results</h3>
+                  <p>Test ID:
+                    <span id="testId"></span></p>
+                  <input type="hidden" value="" id="resultsURL" readonly="readonly"/>
+                  <img src="" id="resultsImg"/>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <footer class="footer mt-auto py-3">
+      <div class="container">
+        <div class="row">
+          <div class="col-12">
+            <small>
+              <a href="https://github.com/librespeed/speedtest">Source code</a>
+              |
+              <a class="privacy" href="privacy.html" onclick="I('privacyPolicy').style.display=''">Privacy</a>
+            </small>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

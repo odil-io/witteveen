@@ -1,0 +1,20 @@
+{
+  "IP:127.0.0.2": {
+    "Download": "100Mbps",
+    "upload": "100Mbps",
+    "Ping": "19ms",
+    "Jitter": "10ms"
+  },
+  "IP:127.0.0.3": {
+    "Download": "98Mbps",
+    "upload": "188Mbps",
+    "Ping": "25ms",
+    "Jitter": "9ms"
+  },
+  "IP:127.0.0.1": {
+    "Download": "1020Mbps",
+    "upload": "10Mbps",
+    "Ping": "11ms",
+    "Jitter": "12ms"
+  }
+}

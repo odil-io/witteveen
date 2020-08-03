@@ -1,0 +1,77 @@
+*{
+	font-family:"Comic Sans MS";
+}
+.wrapper {
+    width: 960px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.header{
+	position:relative;
+	height:100px;
+}
+.logo {
+	position:absolute;
+	
+}
+
+.insturen{
+	position:absolute;
+	right:0;
+}
+.grappen{
+    position: relative;
+    text-align: center;
+    height: auto;
+    min-height: 530px;
+}
+.grap{
+	box-sizing: border-box;
+	padding-top:130px;
+	padding-left: 50px;
+	padding-right: 50px;
+	font-size:32px;
+	width: 840px;
+	margin-left:auto;
+	margin-right:auto;
+}
+.vorige{
+    position: absolute;
+    left: 0;
+    top: 25%;
+    background-image: url("../img/vorige.png");
+    width: 60px;
+    height: 190px;
+}
+.volgende{  
+position: absolute;
+  right: 0;
+  top: 25%;
+  background-image: url("../img/volgende.png");
+  width: 60px;
+  height: 190px;
+}
+.beoordeling{
+    position: relative;
+    height: 60px;
+}
+.hahaha{
+    position: absolute;
+    left: 200px;
+    background: rgb(0,255,0);
+    height: 60px;
+    width: 180px;
+      line-height: 60px;
+  text-align: center;
+  font-size:36px;
+}
+.matig{
+    position: absolute;
+    right: 200px;
+    background: rgb(255,0,0);
+    height: 60px;
+    width: 180px;
+     line-height: 60px;
+  text-align: center;
+  font-size:36px;
+}

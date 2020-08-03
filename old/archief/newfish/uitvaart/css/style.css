@@ -1,0 +1,329 @@
+/* 
+
+Paars: #6e4676
+Grijs: #292929
+Wit:   #f7f9fa
+
+5 knoppen gradient:	#ffffff > #ebebeb
+tussen de 5 knoppen:	#ffffff > #dedede
+
+header lijn:		#ffffff,0.47
+
+*/
+
+*{
+	margin:0;
+	padding:0;
+}
+body{
+	font-size: 12px;
+	font-family: 'Montserrat', sans-serif;
+	line-height:28px;
+	color: #ffffff;
+}
+.row{
+	width:100%;
+}
+.row:after{
+	clear:both;
+	display:table;
+	content:" ";
+}
+.col{
+	float:left;
+}
+.col-1{
+	width:8.333%;
+}
+.col-2{
+	width:16.666%;
+}
+.col-3{
+	width:33.333%;
+}
+.col-4{
+	width:25%;
+}
+.col-6{
+	width:50%;
+}
+.col-12{
+	width:100%;
+}
+.site{
+	max-width:1440px;
+	margin:0 auto;
+}
+@media (max-width: 1440px){
+	.site{
+		max-width:1280px;
+	}
+}
+@media (max-width: 1280px){
+	.site{
+		max-wdth:960px;
+	}
+}
+
+.header{
+    z-index: 99;
+    position: relative;
+}
+.logo{
+	float: left;
+	background-image:url(../img/logo-wit.png);
+	background-size: contain;
+	background-repeat:no-repeat;
+	background-position: center;
+	height: 84px;
+	width: 274px;
+}
+.top-container{
+	height:24px;
+	background-color:#6e4676;
+	font-size: 12px;
+}
+.nav-container{
+	height: 100px;
+	background-image:url(../img/header-schaduw.png);
+	background-repeat: repeat-x;
+}
+.navigation{display: inline-block;margin: 0 60px;}
+.nav-item{
+    display: inline-block;
+    padding: 33px 10px;
+}
+.nav-item-a{
+    color: #ffffff;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+.header-image{
+    background-image: url(../img/header-bg-1.jpg);
+    height: 729px;
+    background-size: cover;
+    position: relative;
+    overflow: hidden;
+}
+.knoppen-balk{
+    background: #ffffff;
+    background: -moz-linear-gradient(top,  #ffffff 0%, #ebebeb 100%);
+    background: -webkit-linear-gradient(top,  #ffffff 0%,#ebebeb 100%);
+    background: linear-gradient(to bottom,  #ffffff 0%,#ebebeb 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#ebebeb',GradientType=0 );
+    height: 113px;
+    font-size: 0;
+}
+.knop:first-of-type,
+.knop:last-of-type{
+	border:none;
+}
+.knop{
+	width: calc(20% - 2px);
+	height: 113px;
+	display:inline-block;
+	font-size: 0;
+	border-left:1px solid #dedede;
+	border-right:1px solid #ffffff;
+}
+.knop:hover{
+	background-color:#292929;
+}
+
+.hout-bg{
+	background-image:url("../img/hout-bg.jpg");
+	background-size:cover;
+	background-position:center;
+	height:420px;
+	overflow:hidden;
+}
+.marmer-bg{
+	border-top:5px solid #f7f9fa;
+	background-image: url("../img/marmer-bg.png");
+	background-size:cover;
+	background-position:center;
+	border-bottom: 5px solid #6e4676;
+}
+.footer{
+	background-color:#292929;
+	color:#c8c8c8;
+	height:36px;
+}
+
+article{
+    padding: 20px;
+    margin-top: 45px;
+}
+.titel-blok{
+    color: transparent;
+    background-image: url("../img/uitvaartspecialist-tekst-logo.png");
+    background-repeat: no-repeat;
+    height: 54px;
+    margin-bottom: 20px;
+}
+.tekst-blok{
+	
+}
+.tekst-blok > p {
+	margin-bottom:20px;
+	font-family: 'Raleway', sans-serif;
+	font-size:16px;
+	line-height:28px;
+}
+
+
+.carousel{
+	position:relative;
+}
+.carousel-controls{
+	position:absolute;
+	top: 50%;
+	width:100%;
+}
+.carousel-left{
+	position:absolute;
+	left: 10px;
+	width: 10px;
+	height: 10px;
+	border-left: solid #6e4676;
+	border-top: solid #6e4676;
+	border-width: 3px;
+	transform: rotate(-45deg);
+}
+.carousel-right{
+	position:absolute;
+	right: 10px;
+	width: 10px;
+	height: 10px;
+	border-right: solid #6e4676;
+	border-top: solid #6e4676;
+	border-width: 3px;
+	transform: rotate(45deg);
+}
+.carousel-items{padding: 50px 0;text-align: center;}
+.carousel-item{
+    display: inline-block;
+    width: 200px;
+    margin: 0 30px;
+}
+.carousel-img:before{
+	content: ' ';
+    display: inline-block;
+    vertical-align: middle;
+    height: 100%;
+}
+.carousel-img{
+	vertical-align:middle;
+}
+.carousel-img > img{
+	width: 100%;
+	vertical-align:middle;
+}
+.carousel-tekst{
+    font-size: 16px;
+    color: #6e4676;
+}
+.gecentreerde-tekst{
+	font-family: 'Raleway', sans-serif;
+	text-align:center;
+	line-height:28px;
+}
+.gecentreerde-logo{
+	background-image:url("../img/gecentreerde-logo.png");
+	background-repeat: no-repeat;
+	height: 140px;
+	background-position: center;
+}
+.adres{
+	color: #727272;
+	font-size: 14px; */
+}
+a.facebook{
+	display:inline-block;
+	height:50px;
+	width:50px;
+	background-image:url("../img/facebook.png");
+	background-repeat:no-repeat;
+	background-position:center;
+}
+span.telefoon{
+	height:10px;
+	width:10px;
+	background-image:url("../img/telefoon.png");
+}
+.knop{
+	background-repeat:no-repeat;
+	background-position:center;
+}
+.knop-1{
+	background-image:url("../img/uitvaartspecialist-knop.png");
+}
+.knop-2{
+	background-image:url("../img/ehbc-knop.png");
+}
+.knop-3{
+	background-image:url("../img/uitvaartdiy-knop.png");
+}
+.knop-4{
+	background-image:url("../img/uitvaarttotaal-knop.png");
+}
+.knop-5{
+	background-image:url("../img/uitvaartwinkel-knop.png");
+}
+.knop-1:hover{
+	background-image:url("../img/uitvaartspecialist-knop-hover.png");
+}
+.knop-2:hover{
+	background-image:url("../img/ehbc-knop-hover.png");
+}
+.knop-3:hover{
+	background-image:url("../img/uitvaartdiy-knop-hover.png");
+}
+.knop-4:hover{
+	background-image:url("../img/uitvaarttotaal-knop-hover.png");
+}
+.knop-5:hover{
+	background-image:url("../img/uitvaartwinkel-knop-hover.png");
+}
+.slider-logo{
+	background-image:url("../img/slider-logo.png");
+	background-repeat: no-repeat;
+	background-position: center;
+	width: 370px;
+	height: 70px;
+	margin: 0 auto;
+}
+.slider-message{
+    text-align: center;
+    font-size: 16px;
+    margin-top: 100px;
+    z-index: 999;
+    position: relative;
+}
+.slider-message > p{
+	margin-bottom:20px;
+}
+.slider-knop{
+    background-color: #6e4676;
+    font-size: 14px;
+    text-transform: uppercase;
+    padding: 10px;
+    color: #ffffff;
+    text-decoration: none;
+    border-radius: 10px;
+}
+.slider-backdrop{
+	position: absolute;
+	background-image:url("../img/slider-backdrop.png");
+	background-repeat: no-repeat;
+	background-position: center;
+	margin: 0 auto;
+	height: 920px;
+	width: 100%;
+	top: -140px;
+	z-index: 0;
+}
+.mannen-met-kist{
+	width:100%;
+}

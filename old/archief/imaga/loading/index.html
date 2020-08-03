@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Loading IMAGA</title>
+    <style>
+      body {
+        background-color: rgb(40, 150, 228);
+      }
+      .imaga {
+        display: inline-block;
+        position: relative;
+        height: 180px;
+        width: 180px;
+        margin-top: 10%;
+        margin-left: 200px;
+        margin-right: 200px;
+      }
+      .imaga > .circle-1 {
+        background-image: url("RING1.png");
+        background-repeat: no-repeat;
+        background-size: 100%;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        animation: imaga-1 8s infinite linear;
+      }
+      .imaga > .circle-2 {
+        background-image: url("RING2.png");
+        background-repeat: no-repeat;
+        background-size: 100%;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        animation: imaga-2 16s infinite linear;
+      }
+      .imaga > .circle-3 {
+        background-image: url("RING3.png");
+        background-repeat: no-repeat;
+        background-size: 100%;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        animation: imaga-3 7s infinite linear;
+      }
+      .imaga > .circle-4 {
+        background-image: url("RING4.png");
+        background-repeat: no-repeat;
+        background-size: 100%;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        animation: imaga-4 12s infinite linear;
+      }
+      @keyframes imaga-1 {
+        0% {
+          transform: rotate(0deg);
+        }
+        10% {
+          transform: rotate(0deg);
+        }
+        20% {
+          transform: rotate(30deg);
+        }
+        20% {
+          transform: rotate(-40deg);
+        }
+        50% {
+          transform: rotate(-40deg);
+        }
+        60% {
+          transform: rotate(0deg);
+        }
+        80% {
+          transform: rotate(240deg);
+        }
+        90% {
+          transform: rotate(240deg);
+        }
+        100% {
+          transform: rotate(0deg);
+        }
+      }
+      @keyframes imaga-2 {
+        0% {
+          transform: rotate(0deg);
+        }
+        20% {
+          transform: rotate(80deg);
+        }
+        30% {
+          transform: rotate(80deg);
+        }
+        40% {
+          transform: rotate(420deg);
+        }
+        80% {
+          transform: rotate(420deg);
+        }
+        90% {
+          transform: rotate(0deg);
+        }
+        100% {
+          transform: rotate(0deg);
+        }
+      }
+      @keyframes imaga-3 {
+        0% {
+          transform: rotate(0deg);
+        }
+        10% {
+          transform: rotate(0deg);
+        }
+        20% {
+          transform: rotate(25deg);
+        }
+        60% {
+          transform: rotate(25deg);
+        }
+        70% {
+          transform: rotate(0deg);
+        }
+        100% {
+          transform: rotate(0deg);
+        }
+      }
+      @keyframes imaga-4 {
+        0% {
+          transform: rotate(0deg);
+        }
+        10% {
+          transform: rotate(0deg);
+        }
+        30% {
+          transform: rotate(128deg);
+        }
+        40% {
+          transform: rotate(128deg);
+        }
+        60% {
+          transform: rotate(-128deg);
+        }
+        80% {
+          transform: rotate(-128deg);
+        }
+        90% {
+          transform: rotate(0deg);
+        }
+        100% {
+          transform: rotate(0deg);
+        }
+      }
+    </style>
+    <style>
+      .imaga-iso {
+        position: relative;
+        display: inline-block;
+        height: 180px;
+        width: 180px;
+        margin-top: 10%;
+        margin-left: 200px;
+        margin-right: 200px;
+        transform-style: preserve-3d;
+        animation: isometric 6s infinite ease-in-out;
+      }
+      .imaga-iso > .circle-1 {
+        background-image: url("RING1.png");
+        background-repeat: no-repeat;
+        background-size: 100%;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        animation: isometric-1 6s infinite linear;
+        transform: translateZ(150px);
+      }
+      .imaga-iso > .circle-2 {
+        background-image: url("RING2.png");
+        background-repeat: no-repeat;
+        background-size: 100%;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        animation: isometric-2 6s infinite linear;
+        transform: translateZ(100px);
+      }
+      .imaga-iso > .circle-3 {
+        background-image: url("RING3.png");
+        background-repeat: no-repeat;
+        background-size: 100%;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        animation: isometric-3 6s infinite linear;
+        transform: translateZ(50px);
+      }
+      .imaga-iso > .circle-4 {
+        background-image: url("RING4.png");
+        background-repeat: no-repeat;
+        background-size: 100%;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        animation: isometric-4 6s infinite linear;
+      }
+      .centerline {
+        position: absolute;
+        width: 360px;
+        border-top: 3px dotted #fff;
+        transform: rotateY(90deg) translateX(-50px);
+        top: 50%;
+        left: -50%;
+      }
+      @keyframes isometric {
+        0% {
+          transform: rotateX(0deg) rotateY(0deg) perspective(99999px);
+        }
+        10% {
+          transform: rotateX(0deg) rotateY(0deg) perspective(99999px);
+        }
+        20% {
+          transform: rotateX(-20deg) rotateY(-45deg) perspective(99999px);
+        }
+        80% {
+          transform: rotateX(-20deg) rotateY(-45deg) perspective(99999px);
+        }
+        100% {
+          transform: rotateX(0deg) rotateY(0deg) perspective(99999px);
+        }
+      }
+      @keyframes isometric-1 {
+        0% {
+          transform: rotateZ(0deg) translateZ(0px);
+        }
+        10% {
+          transform: rotateZ(0deg) translateZ(0px);
+        }
+        20% {
+          transform: rotateZ(0deg) translateZ(200px);
+        }
+        30% {
+          transform: rotateZ(0deg) translateZ(200px);
+        }
+        40% {
+          transform: rotateZ(0deg) translateZ(200px);
+        }
+        60% {
+          transform: rotateZ(0deg) translateZ(200px);
+        }
+        80% {
+          transform: rotateZ(0deg) translateZ(200px);
+        }
+        100% {
+          transform: rotateZ(0deg) translateZ(0px);
+        }
+      }
+      @keyframes isometric-2 {
+        0% {
+          transform: rotateZ(0deg) translateZ(0px);
+        }
+        10% {
+          transform: rotateZ(0deg) translateZ(0px);
+        }
+        20% {
+          transform: rotateZ(0deg) translateZ(140px);
+        }
+        30% {
+          transform: rotateZ(0deg) translateZ(140px);
+        }
+        40% {
+          transform: rotateZ(0deg) translateZ(140px);
+        }
+        60% {
+          transform: rotateZ(0deg) translateZ(140px);
+        }
+        80% {
+          transform: rotateZ(0deg) translateZ(140px);
+        }
+        100% {
+          transform: rotateZ(0deg) translateZ(0px);
+        }
+      }
+      @keyframes isometric-3 {
+        0% {
+          transform: rotateZ(0deg) translateZ(0px);
+        }
+        10% {
+          transform: rotateZ(0deg) translateZ(0px);
+        }
+        20% {
+          transform: rotateZ(0deg) translateZ(80px);
+        }
+        30% {
+          transform: rotateZ(0deg) translateZ(80px);
+        }
+        40% {
+          transform: rotateZ(0deg) translateZ(80px);
+        }
+        60% {
+          transform: rotateZ(0deg) translateZ(80px);
+        }
+        80% {
+          transform: rotateZ(0deg) translateZ(80px);
+        }
+        100% {
+          transform: rotateZ(0deg) translateZ(0px);
+        }
+      }
+      @keyframes isometric-4 {
+        0% {
+          transform: rotateZ(0deg) translateZ(0px);
+        }
+        10% {
+          transform: rotateZ(0deg) translateZ(0px);
+        }
+        20% {
+          transform: rotateZ(0deg) translateZ(20px);
+        }
+        30% {
+          transform: rotateZ(0deg) translateZ(20px);
+        }
+        40% {
+          transform: rotateZ(0deg) translateZ(20px);
+        }
+        60% {
+          transform: rotateZ(0deg) translateZ(20px);
+        }
+        80% {
+          transform: rotateZ(0deg) translateZ(20px);
+        }
+        100% {
+          transform: rotateZ(0deg) translateZ(0px);
+        }
+      }
+    </style>
+    <style>
+      .imaga-sphere {
+        position: relative;
+        display: inline-block;
+        height: 180px;
+        width: 180px;
+        margin-top: 10%;
+        margin-left: 200px;
+        margin-right: 200px;
+        transform-style: preserve-3d;
+        animation: sphere 6s infinite ease-in-out;
+      }
+      .imaga-sphere > .circle-1 {
+        background-image: url("RING1.png");
+        background-repeat: no-repeat;
+        background-size: 100%;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        animation: sphere-1 5s infinite linear;
+        transform: translateZ(150px);
+      }
+      .imaga-sphere > .circle-2 {
+        background-image: url("RING2.png");
+        background-repeat: no-repeat;
+        background-size: 100%;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        animation: sphere-2 6s infinite linear;
+        transform: translateZ(100px);
+      }
+      .imaga-sphere > .circle-3 {
+        background-image: url("RING3.png");
+        background-repeat: no-repeat;
+        background-size: 100%;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        animation: sphere-3 7s infinite linear;
+        transform: translateZ(50px);
+      }
+      .imaga-sphere > .circle-4 {
+        background-image: url("RING4.png");
+        background-repeat: no-repeat;
+        background-size: 100%;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        animation: sphere-4 8s infinite linear;
+      }
+      .centerline {
+        position: absolute;
+        width: 360px;
+        border-top: 3px dotted #fff;
+        transform: rotateY(90deg) translateX(-50px);
+        top: 50%;
+        left: -50%;
+      }
+      @keyframes sphere-1 {
+        0% {
+          transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+        }
+        100% {
+          transform: rotateX(360deg) rotateY(360deg) rotateZ(360deg);
+        }
+      }
+      @keyframes sphere-2 {
+        0% {
+          transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+        }
+        100% {
+          transform: rotateX(360deg) rotateY(360deg) rotateZ(360deg);
+        }
+      }
+      @keyframes sphere-3 {
+        0% {
+          transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+        }
+        100% {
+          transform: rotateX(360deg) rotateY(360deg) rotateZ(360deg);
+        }
+      }
+      @keyframes sphere-4 {
+        0% {
+          transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+        }
+        100% {
+          transform: rotateX(360deg) rotateY(360deg) rotateZ(360deg);
+        }
+      }
+    </style>
+    <style>
+      .imaga-2 {
+        display: inline-block;
+        position: relative;
+        height: 180px;
+        width: 180px;
+        margin-top: 10%;
+        margin-left: 200px;
+        margin-right: 200px;
+      }
+      .imaga-2 > .circle-1 {
+        background-image: url("RING1.png");
+        background-repeat: no-repeat;
+        background-size: 100%;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        animation: imaga-21 3s infinite ease-in-out;
+      }
+      .imaga-2 > .circle-2 {
+        background-image: url("RING2.png");
+        background-repeat: no-repeat;
+        background-size: 100%;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        animation: imaga-22 6s infinite ease-in-out;
+      }
+      .imaga-2 > .circle-3 {
+        background-image: url("RING3.png");
+        background-repeat: no-repeat;
+        background-size: 100%;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        animation: imaga-23 12s infinite ease-in-out;
+      }
+      .imaga-2 > .circle-4 {
+        background-image: url("RING4.png");
+        background-repeat: no-repeat;
+        background-size: 100%;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        animation: imaga-24 24s infinite ease-in-out;
+      }
+      @keyframes imaga-21 {
+        0% {
+          transform: rotate(0deg);
+        }
+        50% {
+          transform: rotate(-45deg);
+        }
+        100% {
+          transform: rotate(0deg);
+        }
+      }
+      @keyframes imaga-22 {
+        0% {
+          transform: rotate(0deg);
+        }
+        50% {
+          transform: rotate(45deg);
+        }
+        100% {
+          transform: rotate(0deg);
+        }
+      }
+      @keyframes imaga-23 {
+        0% {
+          transform: rotate(0deg);
+        }
+        50% {
+          transform: rotate(-45deg);
+        }
+        100% {
+          transform: rotate(0deg);
+        }
+      }
+      @keyframes imaga-24 {
+        0% {
+          transform: rotate(0deg);
+        }
+        50% {
+          transform: rotate(45deg);
+        }
+        100% {
+          transform: rotate(0deg);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="imaga">
+      <div class="circle-1"></div>
+      <div class="circle-2"></div>
+      <div class="circle-3"></div>
+      <div class="circle-4"></div>
+    </div>
+    <div class="imaga-iso">
+      <div class="centerline"></div>
+      <div class="circle-1"></div>
+      <div class="circle-2"></div>
+      <div class="circle-3"></div>
+      <div class="circle-4"></div>
+    </div>
+    <div class="imaga-sphere">
+      <div class="circle-1"></div>
+      <div class="circle-2"></div>
+      <div class="circle-3"></div>
+      <div class="circle-4"></div>
+    </div>
+    <div class="imaga-2">
+      <div class="circle-1"></div>
+      <div class="circle-2"></div>
+      <div class="circle-3"></div>
+      <div class="circle-4"></div>
+    </div>
+  </body>
+</html>

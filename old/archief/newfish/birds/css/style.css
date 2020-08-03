@@ -1,0 +1,259 @@
+/*
+
+font-family: 'Playfair Display', serif; <- vrijwel alles
+font-family: 'PT Sans', sans-serif;	<- footer adres
+font-family: 'Merriweather', serif; <- Instagram link
+
+#000000 - nav
+border bottom: #d4d4d4 - nav :hover
+#999080 - nav active
+nav font size :16px;
+body font size: 14px;
+
+border-blog items: #464646
+
+
+
+*/
+
+html,body{
+	padding:0;
+	margin:0;
+}
+
+body{
+	font-family: 'Playfair Display', serif;
+	font-weight: 400;
+	color: #666666;
+	line-height:22px;
+}
+
+.site-logo{
+	background-image:url("../img/navigation-logo.png");
+	height:44px;
+	width:244px;
+	margin:30px auto;
+}
+a, a:hover, a:active{
+	color:#999080;
+}
+.navbar-nav{
+	float:none;
+}
+.navbar-nav>li{
+	float:none !important;
+	display:inline-block;
+}
+.divider{
+	border-bottom:1px solid #e5e5e5;
+}
+.double-divider{
+	border-bottom: 1px solid #555555;
+}
+.header-image{
+	position: relative;
+	background-image:url("../img/header-img.jpg");
+	background-size:cover;
+	height: 70vh;
+	min-height: 470px;
+	border-bottom:1px solid #000000;
+	margin:0 -15px;
+}
+.header-logo{
+	position: absolute;
+	/* background-image: url("../img/header-logo.png"); */
+	background-position: center;
+	background-repeat: no-repeat;
+	width: 100%;
+	top: 50%;
+	transform: translateY(-50%);
+}
+.nav li a{
+	color:#000000;
+	font-size:16px;
+	font-weight: 700;
+}
+.nav li a:hover{
+	text-decoration:underline;
+	background-color: transparent;
+}
+.nav li.active a{
+	color:#999080;
+}
+img.bw{
+    filter: gray alpha(opacity = 100);
+    -webkit-filter: grayscale(100%);
+    -webkit-transition: all 400ms ease;
+    -moz-transition: all 400ms ease;
+    -ms-transition: all 400ms ease;
+    -o-transition: all 400ms ease;
+    transition: all 400ms ease;
+}
+img.bw:hover{
+    filter: gray alpha(opacity = 0);
+    -webkit-filter: grayscale(0%);
+}
+img.border{
+	border:1px solid #464646;
+}
+.blog-item-wrap, .blog-item-wrap:hover{
+    margin-bottom: 40px;
+    color: #666;
+    text-decoration:none;
+}
+.blog-item-wrap:hover .blog-item-image > img{
+	filter: gray alpha(opacity = 0);
+    -webkit-filter: grayscale(0%);
+}
+.blog-item-title > h1{
+	font-size:18px;
+	font-weight:700;
+	color:#999080;
+	margin: 28px 0 12px;
+}
+.blog-item-tekst{
+	font-weight:400;
+}
+
+.models-item-wrap{}
+.models-item-image{}
+.models-item-naam > h1{
+	font-size:16px;
+	text-align:center;
+	color:#000000;
+	margin-top: 15px;
+}
+
+.press-item-wrap{
+	margin-bottom:46px;
+}
+.lead{
+	font-size: 18px;
+}
+h1{
+	color:#999080;
+	font-weight:700;
+	margin:30px 0;
+}
+.about h3{
+	line-height: 54px;
+}
+.about h2{
+	color:#000000;
+}
+.about p{
+	font-family: 'PT Sans', sans-serif;
+}
+.single-model b{
+	font-weight:900;
+}
+.single-model .model-border{
+	border-top:1px solid #e5e5e5;
+	border-bottom:1px solid #e5e5e5;
+}
+.single-model table{
+	width:100%;
+	margin: 3px 0;
+}
+.single-model span.property{
+	color:#999080;
+}
+.single-model span.value{
+	font-size:20px;
+	font-weight:700;
+	color:#333333;
+}
+.single-model .print-portfolio{
+	color:#999080;
+	font-size:12px;
+}
+.single-model .model-book{
+	height:630px;
+	margin: 20px 0;
+	border: 15px solid #ebebeb;
+}
+
+.insta-container{
+	float:right;
+	margin: 30px 0;
+	font-family: 'Merriweather', serif;
+}
+.instagram:before{
+	display:inline-block;
+	content:"\f16d";
+	margin-right: 3px;
+}
+.instagram-wrap{
+	margin-bottom:60px;
+}
+.instagram-wrap img{
+	margin:15px auto;
+}
+.blog-item-tekst,
+.blog-item-datum{
+	font-family: 'PT Sans', sans-serif;
+}
+.blog-item-datum{
+	font-size:12px;
+	color: #999999;
+	margin: 30px 0;
+}
+.blog-pagination{
+	border-top:1px solid #d9d9d9;
+	border-bottom:1px solid #d9d9d9;
+	margin-top: 60px;
+}
+.blog-pagination-wrap{
+	font-family: 'Merriweather', serif;
+	margin:30px 0;
+}
+.blog-pagination-wrap a{
+	color:#666666;
+}
+.blog-pagination-wrap > .newer{
+	float:left;
+}
+.blog-pagination-wrap > .newer > span{
+    margin-right: 6px;
+}
+.blog-pagination-wrap > .older{
+	float:right;
+}
+.blog-pagination-wrap > .older > span{
+    margin-left: 6px;
+}
+.row.footer-icons{
+	font-size:20px;
+	color:#999080;
+	margin-top: 40px;
+}
+.merriweather{
+	font-family: 'Merriweather', serif;
+}
+.pt-sans{
+	font-family: 'PT Sans', sans-serif;
+}
+.footer-adres{
+	font-family: 'PT Sans', sans-serif;
+	color:#999080;
+}
+.footer-copyright{
+	padding: 35px 0 25px;
+}
+.footer-nav{
+	width:100%;
+	margin:0;
+	padding:0;
+}
+.footer-nav li{
+	display: table-cell;
+	width: 1%;
+	text-align: center;
+}
+.footer-nav li a{
+	color:#000000;
+}
+.footer{
+	margin-top: 58px;
+	margin-bottom: 15px;
+}

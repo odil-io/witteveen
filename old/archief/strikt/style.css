@@ -1,0 +1,47 @@
+@import url('edwardian.css');
+
+body{
+	background-color:#000000;
+	font-size: 21px;
+	margin: 0;
+	padding: 0;
+	color:#FFFFFF;
+	font-family: sans-serif;
+}
+.header, .content, .footer{
+	width:960px;
+	margin: 0 auto;
+}
+.main-image{
+	background-image:url("header.png");
+	background-size:cover;
+	background-position: center;
+	height: 420px;
+}
+.logo{
+	background-image:url("logo.png");
+	background-size:contain;
+	height: 165px;
+	width:708px;
+	margin: 42px auto;
+}
+.content p{
+	line-height: 1.3;
+	letter-spacing: 0.2px;
+	margin-bottom: 40px;
+}
+.footer{
+	margin:100px auto;
+}
+.strikt-w, .strikt{
+	font-family:"edwardian";
+	font-weight:normal;
+	font-size: 70px;
+}
+.strikt-w{
+	font-size: 90px;
+}
+ul{
+	list-style-type:none;
+	padding:0;
+}

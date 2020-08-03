@@ -1,0 +1,13 @@
+body{
+	padding:0;
+	margin:0;
+}
+.site{
+	background-image:url("activedesign.png");
+	background-repeat: no-repeat;
+	background-size: cover;
+	width: 100%;
+	height: 1790px;
+	margin: 0;
+	padding: 0;
+}
