@@ -1,16 +1,25 @@
-<?php
+<?php get_header(); ?>
 
-get_header();
+<?php if( have_posts() ): ?>
 
-if( have_posts() ):
-    while( have_posts() ):
-        the_post();
+    <?php get_template_part('template-parts/jumbotron/jumbotron'); ?>
 
-        the_title();
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <?php while( have_posts() ): ?>
+                        <?php the_post(); ?>
 
-        the_content();
+                        <?php the_title(); ?>
 
-    endwhile;
-endif;
+                        <?php the_content(); ?>
 
-get_footer();
+                    <?php endwhile; ?>
+                </div>
+            </div>
+        </div>
+    </section>
+<?php endif; ?>
+
+<?php get_footer(); ?>

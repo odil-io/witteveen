@@ -47,7 +47,7 @@ function setup_theme() {
   // Add image sizes
   // add_image_size('header-narrow', 750, 600, true);
 }
-// add_action('after_setup_theme', __NAMESPACE__ . '\\setup_theme');
+add_action('after_setup_theme', __NAMESPACE__ . '\\setup_theme');
 
 /*
  * Theme assets
@@ -55,8 +55,8 @@ function setup_theme() {
 function load_assets() {
 
   // Re-register jQuery
-  wp_deregister_script('jquery');
-  wp_enqueue_script('jquery', Assets\load('scripts/jquery.min.js'), null, null, true);
+  // wp_deregister_script('jquery');
+  // wp_enqueue_script('jquery', Assets\load('scripts/jquery.min.js'), null, null, true);
 
   // Create version number based on last file edit
   // $main_js_version  = date("ymd-Gis", filemtime( Assets\asset_path('scripts/main.min.js') ));
@@ -66,13 +66,13 @@ function load_assets() {
   // wp_enqueue_script('o-w/js', Assets\load('scripts/main.min.js'), ['jquery'], null, true);
 
   // Enqueue Google Fonts
-  wp_enqueue_style( 'o-w/fonts', 'http://fonts.googleapis.com/css?family=' . GOOGLE_FONTS . '&display=swap');
+  // wp_enqueue_style( 'o-w/fonts', 'http://fonts.googleapis.com/css?family=' . GOOGLE_FONTS . '&display=swap');
 
   // Enqueue main stylesheet
   wp_enqueue_style('o-w/css', get_stylesheet_directory_uri() . '/style.css', null, null);
 
 }
-// add_action('wp_enqueue_scripts', __NAMESPACE__ . '\\load_assets', 100);
+add_action('wp_enqueue_scripts', __NAMESPACE__ . '\\load_assets', 100);
 
 /*
  * Customize login

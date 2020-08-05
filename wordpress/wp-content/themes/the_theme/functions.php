@@ -5,6 +5,7 @@
 // Setting up the theme
 $files = [
   'core/setup.php',
+  'core/walker.php',
 ];
 
 foreach ( $files as $file ):
