@@ -8,3 +8,5 @@
     <body>
 
     <?php get_template_part('template-parts/navigation/navigation'); ?>
+
+    <?php get_template_part('template-parts/jumbotron/jumbotron'); ?>

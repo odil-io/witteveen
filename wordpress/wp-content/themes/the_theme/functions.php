@@ -1,8 +1,5 @@
 <?php
 
-// require_once( trailingslashit( get_template_directory() ) . '/core/setup.php');
-
-// Setting up the theme
 $files = [
   'core/setup.php',
   'core/walker.php',

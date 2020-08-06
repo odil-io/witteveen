@@ -45,7 +45,7 @@ function setup_theme() {
   add_theme_support('html5', ['caption', 'comment-form', 'comment-list', 'gallery', 'search-form']);
 
   // Add image sizes
-  // add_image_size('header-narrow', 750, 600, true);
+  add_image_size('jumbotron', 1920, 600, true);
 }
 add_action('after_setup_theme', __NAMESPACE__ . '\\setup_theme');
 
@@ -94,4 +94,8 @@ function customize_login() {
  */
 function remove_clutter(){
     remove_action('wp_head', 'wp_generator');
+    remove_action( 'wp_head', 'print_emoji_detection_script', 7 );
+    remove_action( 'admin_print_scripts', 'print_emoji_detection_script' );
+    remove_action( 'wp_print_styles', 'print_emoji_styles' );
+    remove_action( 'admin_print_styles', 'print_emoji_styles' );
 }

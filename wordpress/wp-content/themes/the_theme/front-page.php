@@ -2,8 +2,6 @@
 
 <?php if( have_posts() ): ?>
 
-    <?php get_template_part('template-parts/jumbotron/jumbotron'); ?>
-
     <section>
         <div class="container">
             <div class="row">
