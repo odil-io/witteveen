@@ -7,9 +7,9 @@ $table = get_field('track_entries');
 
 <?php if( $table ): ?>
     <?php foreach( $table as $track ):?>
-        <div class="row mb-5">
+        <div class="row my-5">
             <div class="col-12 col-md-4">
-                <h2 class="display-3">
+                <h2>
                     <?php echo $track['track']; ?>
                     <img src="<?php echo get_stylesheet_directory_uri(). '/assets/vectors/'. $track['layout'].'.svg'; ?>" height="200" width="200"/>
                 </h2>
