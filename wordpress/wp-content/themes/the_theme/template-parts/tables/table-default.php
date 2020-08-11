@@ -7,14 +7,14 @@ $table = get_field('track_entries');
 
 <?php if( $table ): ?>
     <?php foreach( $table as $track ):?>
-        <div class="row my-5">
-            <div class="col-12 col-md-4">
+        <div id="<?php echo $track['track']; ?>" class="row my-5">
+            <div class="col-12 col-md-3">
                 <h2>
                     <?php echo $track['track']; ?>
                     <img src="<?php echo get_stylesheet_directory_uri(). '/assets/vectors/'. $track['layout'].'.svg'; ?>" height="200" width="200"/>
                 </h2>
             </div>
-            <div class="col-12 col-md-8">
+            <div class="col-12 col-md-9">
                 <?php if( $track['table'] ): ?>
                     <table class="table">
                         <tr>
