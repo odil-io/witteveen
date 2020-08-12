@@ -6,7 +6,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-12">
-                    <h1>Odilio Witteveen</h1>
+                    <h1 class="display-1">Odilio Witteveen</h1>
                 </div>
             </div>
             <div class="row mt-5">
@@ -16,10 +16,9 @@
             </div>
             <div class="row">
                 <div class="col-12">
-                    <?php while( have_posts() ): ?>
-                        <?php the_post(); ?>
+                    <?php while( have_posts() ): the_post(); ?>
 
-                        <?php get_template_part('template-parts/index/post', 'default'); ?>
+                        <?php get_template_part('template-parts/post/post', 'default'); ?>
 
                     <?php endwhile; ?>
                 </div>
