@@ -4,18 +4,18 @@
 
     <section>
         <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <h1 class="display-1">Odilio Witteveen</h1>
+            <div class="row justify-content-center">
+                <div class="col-8">
+                    <h1 class="display-1">CODI</h1>
                 </div>
             </div>
-            <div class="row mt-5">
-                <div class="col-12">
+            <div class="row justify-content-center mt-5">
+                <div class="col-6">
                 <h5>Blog Posts</h5>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-12">
+            <div class="row justify-content-center">
+                <div class="col-6">
                     <?php while( have_posts() ): the_post(); ?>
 
                         <?php get_template_part('template-parts/post/post', 'default'); ?>

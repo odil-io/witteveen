@@ -68,8 +68,15 @@ function load_assets() {
   // Enqueue Google Fonts
   // wp_enqueue_style( 'o-w/fonts', 'http://fonts.googleapis.com/css?family=' . GOOGLE_FONTS . '&display=swap');
 
+  // Register main stylesheet
+  wp_register_style('o_w/css', get_stylesheet_directory_uri() . '/style.css', null, null, 'all');
+
   // Enqueue main stylesheet
-  wp_enqueue_style('o-w/css', get_stylesheet_directory_uri() . '/style.css', null, null);
+  wp_enqueue_style( 'o_w/css');
+
+  // Register Konami Script
+  wp_register_script('o_w/konami', get_stylesheet_directory_uri() . '/style.css', null, null, 'all');
+  wp_enqueue_script( 'o_w/konami' );
 
 }
 add_action('wp_enqueue_scripts', __NAMESPACE__ . '\\load_assets', 100);
