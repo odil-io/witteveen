@@ -2,7 +2,7 @@
 # This file is distributed under the same license as the WordPress - 5.5.x - Development - Administration - Network Admin package.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2020-08-12 08:11:28+0000\n"
+"PO-Revision-Date: 2020-08-15 14:56:22+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -453,7 +453,7 @@ msgstr "Markeer als spam"
 
 #: wp-admin/includes/class-wp-ms-sites-list-table.php:207
 msgid "No sites found."
-msgstr "Geen websites gevonden."
+msgstr "Geen sites gevonden."
 
 #: wp-admin/includes/class-wp-ms-sites-list-table.php:42
 #: wp-admin/network/site-info.php:190
@@ -871,7 +871,7 @@ msgstr "Thema verwijderen"
 
 #: wp-admin/network/themes.php:137
 msgid "This theme may be active on other sites in the network."
-msgstr "Dit thema kan actief zijn op andere websites in het netwerk."
+msgstr "Dit thema kan actief zijn op andere sites in het netwerk."
 
 #: wp-admin/network/themes.php:138
 msgid "You are about to remove the following theme:"
@@ -1342,7 +1342,7 @@ msgstr "Ontbrekend of ongeldig site-adres."
 
 #: wp-admin/network/upgrade.php:124
 msgid "Next Sites"
-msgstr "Volgende websites"
+msgstr "Volgende sites"
 
 #: wp-admin/network/settings.php:247
 msgid "Users are not allowed to register these sites. Separate names by spaces."
