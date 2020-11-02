@@ -3,6 +3,7 @@
 $files = [
   'core/setup.php',
   'core/walker.php',
+  'core/comments.php',
 ];
 
 foreach ( $files as $file ):

@@ -5,26 +5,21 @@
     <section>
         <div class="container">
             <div class="row justify-content-center">
-                <div class="col-8">
-                    <h1 class="display-1">CODI</h1>
-                </div>
-            </div>
-            <div class="row justify-content-center mt-5">
-                <div class="col-6">
-                <h5>Blog Posts</h5>
-                </div>
-            </div>
-            <div class="row justify-content-center">
-                <div class="col-6">
+                <div class="col-12">
                     <?php while( have_posts() ): the_post(); ?>
 
-                        <?php get_template_part('template-parts/post/post', 'default'); ?>
+                        <?php get_template_part('template-parts/post/post', get_post_type() != 'post' ? get_post_type() : 'default'); ?>
 
                     <?php endwhile; ?>
                 </div>
             </div>
         </div>
     </section>
+<?php else: ?>
+  <div class="alert alert-warning">
+    <?php _e('Geen berichten gevonden.', 'sage'); ?>
+  </div>
+  <?php get_search_form(); ?>
 <?php endif; ?>
 
 <?php get_footer(); ?>

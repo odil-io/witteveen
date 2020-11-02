@@ -22,6 +22,7 @@ $table = get_field('track_entries');
                             <th>Time</th>
                             <th>Bike</th>
                             <th>Rider</th>
+                            <th>Condition</th>
                         </tr>
                     <?php foreach( $track['table'] as $entry ): $i++; ?>
                         <tr>
@@ -29,6 +30,14 @@ $table = get_field('track_entries');
                             <td><?php echo $entry['time']; ?></td>
                             <td><?php echo $entry['rider']; ?></td>
                             <td><?php echo $entry['bike']; ?></td>
+                            <td>
+                                <?php
+                                foreach( $entry['condition'] as $value ):
+                                    echo $value;
+                                endforeach;
+                                ?>
+                            </td>
+
                         </tr>
                     <?php endforeach; ?>
                     </table>
